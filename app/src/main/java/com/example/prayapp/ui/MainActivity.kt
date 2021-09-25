@@ -52,8 +52,18 @@ class MainActivity : AppCompatActivity() {
                     "error can't access sorry ",
                     Toast.LENGTH_SHORT
                 ).show()
+                bindData(response.data)
             }
         }
+    }
+
+    private fun bindData(data: PrayData) {
+        binding.fajrTime.text=data.results?.datetime?.joinToString { it.times?.fajr.toString() }
+        binding.duhrTime.text=data.results?.datetime?.joinToString { it.times?.dhuhr.toString() }
+        binding.sunriseTime.text=data.results?.datetime?.joinToString { it.times?.sunrise.toString() }
+        binding.asrTime.text=data.results?.datetime?.joinToString { it.times?.asr.toString() }
+        binding.maghribTime.text=data.results?.datetime?.joinToString { it.times?.maghrib.toString() }
+        binding.ishaTime.text=data.results?.datetime?.joinToString { it.times?.isha.toString() }
     }
 
     private fun initBottomSheet() {
@@ -62,4 +72,5 @@ class MainActivity : AppCompatActivity() {
             state = BottomSheetBehavior.STATE_COLLAPSED
         }
     }
+
 }
