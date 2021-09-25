@@ -11,6 +11,7 @@ import com.example.prayapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -25,8 +26,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getPrayRequest(city: String) {
+
         lifecycleScope.launch {
-            TimePrayRepository.getInfoPray(city).collect { getResultPray(it) }
+            TimePrayRepository.getInfoPray(city).onCompletion {  }.catch {
+                Toast.makeText(
+                    this@MainActivity,
+                    "error can't access sorry ",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }.collect { getResultPray(it) }
         }
     }
 

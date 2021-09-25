@@ -14,8 +14,7 @@ import kotlinx.coroutines.flow.flowOn
 object TimePrayRepository {
 
 
-    fun getInfoPray(city: String)=
-        flow<Status<PrayData>>{
+    fun getInfoPray(city: String) = flow<Status<PrayData>>{
             emit(Status.Loading)
             emit(Client.initRequest(city))
         }.flowOn(Dispatchers.IO)
