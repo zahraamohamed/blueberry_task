@@ -1,7 +1,13 @@
 package com.example.prayapp.data
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Date(
-    val gregorian: String,
-    val hijri: String,
-    val timestamp: Int
+    @SerializedName("gregorian")
+    val gregorian: String?,
+    @SerializedName("hijri")
+    val hijri: String?,
+    @SerializedName("timestamp")
+    val timestamp: Int?
 )

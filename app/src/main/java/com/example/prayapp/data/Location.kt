@@ -1,12 +1,23 @@
 package com.example.prayapp.data
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Location(
-    val city: String,
-    val country: String,
-    val country_code: String,
-    val elevation: Double,
-    val latitude: Double,
-    val local_offset: Double,
-    val longitude: Double,
-    val timezone: String
+    @SerializedName("city")
+    val city: String?,
+    @SerializedName("country")
+    val country: String?,
+    @SerializedName("country_code")
+    val countryCode: String?,
+    @SerializedName("elevation")
+    val elevation: Double?,
+    @SerializedName("latitude")
+    val latitude: Double?,
+    @SerializedName("local_offset")
+    val localOffset: Double?,
+    @SerializedName("longitude")
+    val longitude: Double?,
+    @SerializedName("timezone")
+    val timezone: String?
 )

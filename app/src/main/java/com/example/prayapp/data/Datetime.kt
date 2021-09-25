@@ -1,6 +1,11 @@
 package com.example.prayapp.data
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Datetime(
-    val date: Date,
-    val times: Times
+    @SerializedName("date")
+    val date: Date?,
+    @SerializedName("times")
+    val times: Times?
 )

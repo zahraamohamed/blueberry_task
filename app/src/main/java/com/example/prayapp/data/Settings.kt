@@ -1,10 +1,19 @@
 package com.example.prayapp.data
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Settings(
-    val fajr_angle: Double,
-    val highlat: String,
-    val isha_angle: Double,
-    val juristic: String,
-    val school: String,
-    val timeformat: String
+    @SerializedName("fajr_angle")
+    val fajrAngle: Double?,
+    @SerializedName("highlat")
+    val highlat: String?,
+    @SerializedName("isha_angle")
+    val ishaAngle: Double?,
+    @SerializedName("juristic")
+    val juristic: String?,
+    @SerializedName("school")
+    val school: String?,
+    @SerializedName("timeformat")
+    val timeformat: String?
 )

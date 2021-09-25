@@ -1,7 +1,13 @@
 package com.example.prayapp.data
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Results(
-    val datetime: List<Datetime>,
-    val location: Location,
-    val settings: Settings
+    @SerializedName("datetime")
+    val datetime: List<Datetime>?,
+    @SerializedName("location")
+    val location: Location?,
+    @SerializedName("settings")
+    val settings: Settings?
 )
