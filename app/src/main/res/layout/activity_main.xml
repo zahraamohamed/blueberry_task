@@ -8,15 +8,23 @@
     tools:context=".ui.MainActivity">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="268dp"
         android:src="@drawable/sky_background"
         android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/app_logo_bg_white"
         />
 
     <FrameLayout
         android:id="@+id/bottomSheetPrayTime"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:background="@drawable/rounded">
 
@@ -45,13 +53,13 @@
                     android:layout_width="@dimen/toMiddle"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
                     android:padding="16dp"
-
                     android:text="@string/fajr"
+                    android:textAlignment="textStart"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:textAlignment="textStart" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="12dp"
@@ -67,6 +75,7 @@
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
                     android:text="00:00 am"
                     android:textSize="18sp"
                     android:textAlignment="textEnd" />
@@ -85,6 +94,7 @@
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/sunrise"
                     android:textSize="18sp"
                     android:textAlignment="textStart" />
@@ -121,6 +131,7 @@
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/duhr"
                     android:textSize="18sp"
                     android:textAlignment="textStart" />
@@ -157,6 +168,7 @@
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/asr"
                     android:textSize="18sp"
                     android:textAlignment="textStart" />
@@ -193,6 +205,7 @@
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/maghrib"
                     android:textSize="18sp"
                     android:textAlignment="textStart" />
@@ -229,6 +242,7 @@
                     android:padding="16dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/isha"
                     android:textSize="18sp"
                     android:textAlignment="textStart" />
