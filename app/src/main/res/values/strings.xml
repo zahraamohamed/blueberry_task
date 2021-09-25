@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">prayApp</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="fajr">Fajr</string>
+    <string name="duhr">Duhr</string>
+    <string name="asr">Asr</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isha">Isha</string>
 </resources>
