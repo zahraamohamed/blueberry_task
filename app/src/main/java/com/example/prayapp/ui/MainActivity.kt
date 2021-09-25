@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.prayapp.R
 import com.example.prayapp.data.PrayData
 import com.example.prayapp.databinding.ActivityMainBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -15,40 +16,50 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         getPrayRequest("baghdad")
+        initBottomSheet()
     }
 
-    private fun getPrayRequest(city:String) {
+    private fun getPrayRequest(city: String) {
         lifecycleScope.launch {
-        TimePrayRepository.getInfoPray(city).collect { getResultPray(it) }
+            TimePrayRepository.getInfoPray(city).collect { getResultPray(it) }
         }
     }
 
-    fun getResultPray(response :Status<PrayData> ){
-        return when(response){
+    fun getResultPray(response: Status<PrayData>) {
+        return when (response) {
             is Status.Error -> {
-                Toast.makeText(this@MainActivity,
+                Toast.makeText(
+                    this@MainActivity,
                     "error can't access sorry ",
-                    Toast.LENGTH_SHORT).show()
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             is Status.Loading -> {
-                Toast.makeText(this@MainActivity,
+                Toast.makeText(
+                    this@MainActivity,
                     "Loading access  ",
-                    Toast.LENGTH_SHORT).show()
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             is Status.Success -> {
-                Toast.makeText(this@MainActivity,
+                Toast.makeText(
+                    this@MainActivity,
                     "error can't access sorry ",
-                    Toast.LENGTH_SHORT).show()
-
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+        }
+    }
 
-
-
+    private fun initBottomSheet() {
+        BottomSheetBehavior.from(binding.bottomSheetPrayTime).apply {
+            peekHeight = 200
+            state = BottomSheetBehavior.STATE_COLLAPSED
         }
     }
 }
